@@ -22,14 +22,8 @@ public class AccountRegistrationPage extends BasePage {
 	@FindBy(name = "email")
 	WebElement txtEmail;
 
-	@FindBy(name = "telephone")
-	WebElement txtTelephone;
-
 	@FindBy(name = "password")
 	WebElement txtPassword;
-
-	@FindBy(name = "confirm")
-	WebElement txtConfirmPassword;
 
 	@FindBy(xpath = "//input[@name='agree']")
 	WebElement chkdPolicy;

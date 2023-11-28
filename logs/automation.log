@@ -1,0 +1,7 @@
+14:05:31.181 [main] INFO  testCases.TC_001_AccountRegistrationTest - ***    Starting TC_001_AccountRegistrationTest    ****
+14:05:31.249 [main] INFO  testCases.TC_001_AccountRegistrationTest - Clicked on my account link
+14:05:31.443 [main] INFO  testCases.TC_001_AccountRegistrationTest - Clicked on register link
+14:05:31.445 [main] INFO  testCases.TC_001_AccountRegistrationTest - Providing customer data
+14:05:31.760 [main] INFO  testCases.TC_001_AccountRegistrationTest - Clicked on continue
+14:05:32.032 [main] INFO  testCases.TC_001_AccountRegistrationTest - Validating expected message
+14:05:32.035 [main] INFO  testCases.TC_001_AccountRegistrationTest - ***    Finished TC_001_AccountRegistrationTest    ****
