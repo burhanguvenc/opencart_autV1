@@ -15,7 +15,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
@@ -29,24 +28,24 @@ public class BaseClass {
 	public Logger logger;
 
 	public ResourceBundle rb;
-	
-	@BeforeClass
+
+	@BeforeClass(groups= {"Sanity","Master","Regression"})
 	@Parameters("browser")
 	public void setup(String br) {
 
 		rb=ResourceBundle.getBundle("config");
-		
+
 		logger = LogManager.getLogger(this.getClass());
 
 		if (br.equalsIgnoreCase("chrome")) {
 			// Get rid of the "Chrome controlled by automation" notification on browser"
-			ChromeOptions options = new ChromeOptions();
-			options.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
-			driver = new ChromeDriver(options);
-		} 
+			//ChromeOptions options = new ChromeOptions();
+			//options.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
+			driver = new ChromeDriver();
+		}
 		if (br.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
-		} 
+		}
 		if (br.equalsIgnoreCase("edge")) {
 			driver = new EdgeDriver();
 		}
@@ -59,7 +58,7 @@ public class BaseClass {
 
 	}
 
-	@AfterClass
+	@AfterClass(groups= {"Sanity","Master","Regression"})
 	public void tearDown() {
 		driver.quit();
 	}
@@ -83,7 +82,7 @@ public class BaseClass {
 	public String captureScreen(String tname) throws IOException {
 
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-				
+
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		String destination = System.getProperty("user.dir") + "\\screenshots\\" + tname + "_" + timeStamp + ".png";
